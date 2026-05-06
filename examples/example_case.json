@@ -1,0 +1,20 @@
+{
+  "id": "example_001",
+  "digit_id": 900001,
+  "mood_disorder": 1,
+  "phq9_total_score": 18,
+  "phq9_total_score_description": "PHQ-9得分18分，提示中度抑郁症状。",
+  "hamd_total_score": 22,
+  "hamd_total_score_description": "HAMD得分22分，医生评定存在明显抑郁症状。",
+  "gad7_total_score": 12,
+  "gad7_total_score_description": "GAD-7得分12分，提示中度焦虑。",
+  "mdq_total_score": 3,
+  "mdq_total_score_description": "MDQ得分3分，双相提示较弱。",
+  "mood_disorder_related_performance": [
+    {"phq9_Q1_score": 2, "phq9_Q1_description": "超过一半时间兴趣下降。", "correlation_to_mood_disorder": 0.5008},
+    {"phq9_Q2_score": 3, "phq9_Q2_description": "几乎每天情绪低落。", "correlation_to_mood_disorder": 0.5006},
+    {"phq9_Q9_score": 1, "phq9_Q9_description": "有过几天消极自伤想法。", "correlation_to_mood_disorder": 0.5057},
+    {"hamd_Q1_score": 2, "hamd_Q1_description": "言语中自发表达抑郁情绪。", "correlation_to_mood_disorder": 0.6021},
+    {"hamd_Q7_score": 2, "hamd_Q7_description": "工作和兴趣下降。", "correlation_to_mood_disorder": 0.607}
+  ]
+}

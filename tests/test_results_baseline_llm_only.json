@@ -1,0 +1,728 @@
+{
+  "method": "baseline_llm_only",
+  "total": 140,
+  "metrics": {
+    "acc": 0.7571428571428571,
+    "mcc": 0.5796810586220718,
+    "macro_f1": 0.7355555555555555,
+    "class_0": {
+      "precision": 1.0,
+      "recall": 0.4925373134328358,
+      "f1": 0.66
+    },
+    "class_1": {
+      "precision": 0.6822429906542056,
+      "recall": 1.0,
+      "f1": 0.8111111111111111
+    },
+    "confusion_matrix": {
+      "tp": 73,
+      "tn": 33,
+      "fp": 34,
+      "fn": 0
+    }
+  },
+  "predictions": [
+    {
+      "id": "syn_0",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_2",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_4",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_5",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_7",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_8",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_9",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_12",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_14",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_18",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_19",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_22",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_25",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_28",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_29",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_33",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_34",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_36",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_37",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_38",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_40",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_42",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_44",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_49",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_50",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_55",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_57",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_63",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_64",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_65",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_69",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_71",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_72",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_73",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_74",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_76",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_78",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_79",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_80",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_81",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_84",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_86",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_90",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_91",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_92",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_93",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_95",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_99",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_105",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_106",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_107",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_108",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_113",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_116",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_118",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_119",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_120",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_122",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_125",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_128",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_129",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_131",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_132",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_133",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_135",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_136",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_137",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_141",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_142",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_146",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_149",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_151",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_153",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_154",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_156",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_157",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_163",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_165",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_167",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_170",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_172",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_174",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_175",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_180",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_181",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_183",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_184",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_185",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_187",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_189",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_191",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_193",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_195",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_197",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_200",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_201",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_205",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_208",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_210",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_211",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_212",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_213",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_215",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_218",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_220",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_222",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_223",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_225",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_228",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_230",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_231",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_232",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_233",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_235",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_237",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_238",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_239",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_241",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_242",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_244",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_245",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_246",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_247",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_248",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_252",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_253",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_254",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_255",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_256",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_259",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_260",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_262",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_263",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_267",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_269",
+      "true": 0,
+      "pred": 1
+    },
+    {
+      "id": "syn_270",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_272",
+      "true": 0,
+      "pred": 0
+    },
+    {
+      "id": "syn_273",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_276",
+      "true": 1,
+      "pred": 1
+    },
+    {
+      "id": "syn_277",
+      "true": 1,
+      "pred": 1
+    }
+  ],
+  "errors": []
+}
