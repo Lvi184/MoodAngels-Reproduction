@@ -1,7 +1,7 @@
 
 #!/usr/bin/env python3
 """
-批量测试脚本 - 支持规则版本和 LLM 版本切换
+批量测试脚本 - 完整论文复现版本（辩论+裁判）
 """
 
 import sys
@@ -13,7 +13,7 @@ from collections import defaultdict
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-from moodangels.pipeline import MoodAngelsPipeline
+from moodangels.pipeline_full import MoodAngelsPipelineFull
 from moodangels.data import load_cases
 
 
@@ -51,19 +51,12 @@ def calculate_metrics(y_true, y_pred):
 
 def main():
     print("=" * 80)
-    print("MoodAngels 批量测试 - 支持规则/LLM 切换")
+    print("MoodAngels 完整论文复现批量测试（辩论+裁判）")
     print("=" * 80)
     
-    # ========== 配置区域 ==========
-    USE_LLM = False  # 改为 True 使用 DeepSeek API
-    DEEPSEEK_API_KEY = "sk-7ccd72838c414662870657b1a8a666c8"  # 你的 API Key
-    TEST_LIMIT = None  # 测试前 N 个案例，None 表示全部
-    # =============================
-    
-    if USE_LLM:
-        print(f"\n🚀 使用 LLM 版本 (DeepSeek API)")
-    else:
-        print(f"\n📏 使用规则版本 (启发式公式)")
+    # 配置
+    DEEPSEEK_API_KEY = "sk-7ccd72838c414662870657b1a8a666c8"
+    TEST_LIMIT = None  # 先用 5 个案例测试，没问题再改为 None
     
     # 1. 加载测试数据
     test_data_path = project_root / "data" / "syn_test.json"
@@ -74,16 +67,14 @@ def main():
     
     if TEST_LIMIT:
         test_cases = test_cases[:TEST_LIMIT]
-        print(f"      测试前 {len(test_cases)} 个案例")
-    else:
-        print(f"      共 {len(test_cases)} 个测试案例")
     
-    # 2. 初始化 pipeline
-    print("\n[2/6] 初始化 MoodAngelsPipeline")
-    pipe = MoodAngelsPipeline(
+    print(f"      共 {len(test_cases)} 个测试案例")
+    
+    # 2. 初始化完整 pipeline
+    print("\n[2/6] 初始化 MoodAngelsPipelineFull (论文复现版本)")
+    pipe = MoodAngelsPipelineFull(
         retrieval_data=project_root / "data" / "syn_train.json",
-        use_llm=USE_LLM,
-        llm_api_key=DEEPSEEK_API_KEY if USE_LLM else None
+        llm_api_key=DEEPSEEK_API_KEY
     )
     print("      初始化完成")
     
@@ -95,7 +86,7 @@ def main():
     print(f"      有情绪障碍 (1): {label_1}")
     
     # 4. 运行批量测试
-    print("\n[4/6] 运行批量诊断...")
+    print("\n[4/6] 运行批量诊断（完整辩论+裁判流程）...")
     y_true = []
     y_pred = []
     predictions = []
@@ -106,8 +97,11 @@ def main():
         true_label = case["mood_disorder"]
         
         try:
-            result = pipe.diagnose_dict(case, agent="multi")
-            pred_label = result.label
+            # 调用完整的论文复现版本
+            final_result, details = pipe.diagnose_dict(case)
+            
+            # 获取预测标签
+            pred_label = final_result.label
             
             y_true.append(true_label)
             y_pred.append(pred_label)
@@ -115,16 +109,23 @@ def main():
             predictions.append({
                 "id": case_id,
                 "true": true_label,
-                "pred": pred_label
+                "pred": pred_label,
+                "final_result": str(final_result),
+                "details": {
+                    "angel_r": str(details["angel_r"]),
+                    "angel_d": str(details["angel_d"]),
+                    "angel_c": str(details["angel_c"]),
+                    "debate": details["debate"],
+                    "judge_raw": details["judge_raw"]
+                }
             })
             
-            if i % 5 == 0 or i == len(test_cases):
-                current_metrics = calculate_metrics(y_true, y_pred)
-                print(f"      进度: {i}/{len(test_cases)} ({100*i/len(test_cases):.1f}%)")
-                print(f"             ACC: {current_metrics['acc']*100:.1f}% | MCC: {current_metrics['mcc']:.3f}")
-                
+            print(f"      案例 {i}/{len(test_cases)}: 真实={true_label}, 预测={pred_label}")
+            
         except Exception as e:
             print(f"      案例 {case_id} 出错: {e}")
+            import traceback
+            traceback.print_exc()
             errors.append({
                 "id": case_id,
                 "error": str(e)
@@ -162,6 +163,7 @@ def main():
     print(f"  真实为 0        {cm['tn']:4d}        {cm['fp']:4d}")
     print(f"  真实为 1        {cm['fn']:4d}        {cm['tp']:4d}")
     
+    # 详细错误分析
     wrong_cases = [p for p in predictions if p["true"] != p["pred"]]
     if wrong_cases:
         print(f"\n❌ 错误案例 ({len(wrong_cases)} 个):")
@@ -170,10 +172,10 @@ def main():
         if len(wrong_cases) > 10:
             print(f"  ... 还有 {len(wrong_cases) - 10} 个")
     
-    output_path = project_root / "tests" / f"test_results_{'llm' if USE_LLM else 'rule'}.json"
+    # 保存结果
+    output_path = project_root / "tests" / "test_results_full_version.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump({
-            "use_llm": USE_LLM,
             "total": len(y_true),
             "metrics": metrics,
             "predictions": predictions,
@@ -186,16 +188,10 @@ def main():
 
 if __name__ == "__main__":
     try:
-        import pydantic
-        import pandas
-        import numpy
         import openai
     except ImportError as e:
         print(f"缺少依赖: {e}")
-        print("\n请先运行:")
-        print("  conda activate llm")
-        print("  pip install pydantic pandas numpy openai")
+        print("\n请先运行: pip install openai")
         sys.exit(1)
     
     main()
-

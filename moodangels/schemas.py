@@ -9,6 +9,10 @@ class DiagnosisResult:
     confidence: float
     reasons: List[str] = field(default_factory=list)
     evidence: Dict[str, Any] = field(default_factory=dict)
+    
+    def __str__(self):
+        label_text = "有情绪障碍" if self.label == 1 else "无情绪障碍"
+        return f"{self.agent}: {label_text} (置信度: {self.confidence:.2f})\n理由: {'; '.join(self.reasons)}"
 
 @dataclass
 class DebateTurn:
