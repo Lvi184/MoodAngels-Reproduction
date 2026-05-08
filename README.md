@@ -29,14 +29,14 @@ pip install openai
 
 ### Run Tests
 
-#### 1. Rule-based Version (Fast, No API)
+#### 1. Rule-based Version (Fast, No API - Still works!)
 
 ```bash
 python tests/batch_test_with_llm.py
-# (Edit file and set USE_LLM = False)
+# (Edit file and set USE_LLM = False - this is the default)
 ```
 
-#### 2. LLM + MoodAngels
+#### 2. LLM + MoodAngels (Original)
 
 ```bash
 # Edit tests/batch_test_with_llm.py and set:
@@ -54,7 +54,7 @@ python tests/batch_test_with_llm.py
 python tests/baseline_llm_only.py
 ```
 
-#### 4. Full Pipeline Version (with Debate & Judge)
+#### 4. Full Pipeline Version (with Debate & Judge - Best Performance!)
 
 ```bash
 # Edit tests/batch_test_full.py and set your API key
@@ -69,43 +69,39 @@ python compare_all_three.py
 
 ## 📊 Performance Results (on synthetic test set)
 
-### Latest Results (Full Version - with Debate & Judge)
+### All Versions Comparison
 
-| Metric | LLM+MoodAngels (Full) |
-|--------|-----------------|
-| **ACC** | **89.29%** 🏆 |
-| **MCC** | **0.8024** 🏆 |
-| **Macro F1** | **0.8904** 🏆 |
+| Metric | Rule-based | LLM+MoodAngels (Original) | LLM-only Baseline | **LLM+MoodAngels (Full + Debate + Judge)** |
+|--------|-----------|-----------------|-------------------|-------------------------------------------|
+| **ACC** | 86.43% | 86.43% | 75.71% | **89.29%** 🏆 |
+| **MCC** | 0.7291 | 0.7540 | 0.5797 | **0.8024** 🏆 |
+| **Macro F1** | 0.8634 | 0.8598 | 0.7356 | **0.8904** 🏆 |
 
-### Detailed Classification Metrics
+### Full Version Detailed Metrics
 
 | Class | Precision | Recall | F1 |
 |-------|-----------|--------|----|
 | **无情绪障碍** | **1.0** 🏆 | 0.7761 | 0.8739 |
 | **有情绪障碍** | 0.8295 | **1.0** 🏆 | **0.9068** 🏆 |
 
-### Confusion Matrix
+### Confusion Matrix (Full Version)
 
 | | Predicted: No | Predicted: Yes |
 |---|---|---|
 | **True: No** | 52 (TN) | 15 (FP) |
 | **True: Yes** | 0 (FN) | 73 (TP) |
 
-### Previous Results (for comparison)
-
-| Metric | Rule-based | LLM+MoodAngels (Original) | LLM-only Baseline |
-|--------|-----------|-----------------|-------------------|
-| **ACC** | 86.43% | 86.43% | 75.71% |
-| **MCC** | 0.7291 | 0.7540 | 0.5797 |
-| **Macro F1** | 0.8634 | 0.8598 | 0.7356 |
-
 ### Key Findings
 
-- ✅ **MoodAngels framework significantly outperforms LLM-only baseline**
-- 🚀 Latest full version achieves **89.29% ACC**, **0.8024 MCC**, **0.8904 Macro F1** - all records!
+- ✅ **All versions of MoodAngels significantly outperform LLM-only baseline**
+- 🚀 **Full + Debate + Judge version** achieves the best results ever:
+  - **89.29% ACC** (+2.86% improvement)
+  - **0.8024 MCC** (+0.0484 improvement)
+  - **0.8904 Macro F1** (+0.0306 improvement)
 - 🏆 Perfect recall for "有情绪障碍" class (100%) - no false negatives!
 - 🏆 Perfect precision for "无情绪障碍" class (100%) - no false positives!
 - 📊 52 true negatives, 73 true positives, 15 false positives, 0 false negatives
+- 📏 **Rule-based version still works great** (fast, no API needed)
 
 ## 🏗️ Architecture
 
