@@ -5,6 +5,7 @@
 """
 
 import sys
+import os
 import json
 from pathlib import Path
 from collections import defaultdict
@@ -56,9 +57,16 @@ def main():
     
     # ========== 配置区域 ==========
     USE_LLM = False  # 改为 True 使用 DeepSeek API
-    DEEPSEEK_API_KEY = "sk-7ccd72838c414662870657b1a8a666c8"  # 你的 API Key
+    DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")  # 从环境变量加载 API Key
     TEST_LIMIT = None  # 测试前 N 个案例，None 表示全部
     # =============================
+    
+    if USE_LLM and not DEEPSEEK_API_KEY:
+        print("错误：需要设置 DEEPSEEK_API_KEY 环境变量！")
+        print("设置方式：")
+        print("  Windows: set DEEPSEEK_API_KEY=your-api-key")
+        print("  Linux/Mac: export DEEPSEEK_API_KEY=your-api-key")
+        sys.exit(1)
     
     if USE_LLM:
         print(f"\n🚀 使用 LLM 版本 (DeepSeek API)")

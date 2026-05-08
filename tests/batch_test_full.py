@@ -5,6 +5,7 @@
 """
 
 import sys
+import os
 import json
 from pathlib import Path
 from collections import defaultdict
@@ -55,8 +56,15 @@ def main():
     print("=" * 80)
     
     # 配置
-    DEEPSEEK_API_KEY = "sk-7ccd72838c414662870657b1a8a666c8"
+    DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")  # 从环境变量加载 API Key
     TEST_LIMIT = None  # 先用 5 个案例测试，没问题再改为 None
+    
+    if not DEEPSEEK_API_KEY:
+        print("错误：需要设置 DEEPSEEK_API_KEY 环境变量！")
+        print("设置方式：")
+        print("  Windows: set DEEPSEEK_API_KEY=your-api-key")
+        print("  Linux/Mac: export DEEPSEEK_API_KEY=your-api-key")
+        sys.exit(1)
     
     # 1. 加载测试数据
     test_data_path = project_root / "data" / "syn_test.json"
